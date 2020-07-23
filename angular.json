@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-Client-Side"
+    }
+  },
+  "defaultProject": "Angular-Client-Side",
+  "cli": {
+    "analytics": false
+  }
 }
