@@ -5,9 +5,28 @@
   <title>AngularClientSide</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="A small angular application that provides the client side functionality for a general SAAS application." name="description" />
+  <meta content="Spencer Ofwiti" name="author" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- App css -->
+  <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+  <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style" />
 </head>
 <body>
   <app-root></app-root>
+  <!-- bundle -->
+  <script src="assets/js/vendor.min.js" async></script>
+  <script src="assets/js/app.min.js" async></script>
+
+  <!-- Apex js -->
+  <script src="assets/js/vendor/apexcharts.min.js" async></script>
+
+  <!-- Todo js -->
+  <script src="assets/js/ui/component.todo.js" async></script>
+
+  <!-- demo app -->
+  <script src="assets/js/pages/demo.dashboard-crm.js" async></script>
+  <!-- end demo js-->
 </body>
 </html>
