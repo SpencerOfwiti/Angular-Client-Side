@@ -9,13 +9,18 @@ import { LockComponent } from './lock/lock.component';
 import { MailComponent } from './mail/mail.component';
 import { ResetComponent } from './reset/reset.component';
 import { SignupComponent } from './signup/signup.component';
+import {SharedModule} from "../shared/shared.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import { PasswordToggleDirective } from './_directives/password-toggle.directive';
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, LogoutComponent, LockComponent, MailComponent, ResetComponent, SignupComponent],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+  declarations: [AuthComponent, LoginComponent, LogoutComponent, LockComponent, MailComponent, ResetComponent, SignupComponent, PasswordToggleDirective],
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        SharedModule,
+        ReactiveFormsModule
+    ]
 })
 export class AuthModule { }

@@ -1,4 +1,4 @@
-<div class="account-pages mt-5 mb-5">
+<div class="account-pages mt-5 mb-5 authentication-bg">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5">
@@ -6,7 +6,7 @@
 
           <!-- Logo -->
           <div class="card-header pt-4 pb-4 text-center bg-primary">
-            <a href="index.html">
+            <a href="/">
               <span><img src="assets/images/logo.png" alt="" height="18"></span>
             </a>
           </div>
@@ -18,35 +18,45 @@
               <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
             </div>
 
-            <form action="#">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
               <div class="form-group">
                 <label for="emailaddress">Email address</label>
-                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                <input class="form-control" type="email" id="emailaddress" required placeholder="Enter your email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.email.errors }">
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                  <div *ngIf="form.email.errors.required">Email is required</div>
+                </div>
               </div>
 
               <div class="form-group">
-                <a href="reset-password" class="text-muted float-right"><small>Forgot your password?</small></a>
+                <a href="auth/reset-password" class="text-muted float-right"><small>Forgot your password?</small></a>
                 <label for="password">Password</label>
                 <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" placeholder="Enter your password">
-                  <div class="input-group-append" data-password="false">
+                  <input type="password" id="password" class="form-control" placeholder="Enter your password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" required>
+                  <div class="input-group-append" data-password="false" appPasswordToggle [id]="'password'">
                     <div class="input-group-text">
                       <span class="password-eye"></span>
                     </div>
+                  </div>
+                  <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                    <div *ngIf="form.password.errors.required">Password is required</div>
                   </div>
                 </div>
               </div>
 
               <div class="form-group mb-3">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
+                  <input type="checkbox" class="custom-control-input" id="checkbox-signin" formControlName="remember" checked>
                   <label class="custom-control-label" for="checkbox-signin">Remember me</label>
                 </div>
               </div>
 
               <div class="form-group mb-0 text-center">
-                <button class="btn btn-primary" type="submit"> Log In </button>
+                <button class="btn btn-primary" type="submit" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Log In
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
               </div>
 
             </form>
@@ -56,7 +66,7 @@
 
         <div class="row mt-3">
           <div class="col-12 text-center">
-            <p class="text-muted">Don't have an account? <a href="signup" class="text-muted ml-1"><b>Sign Up</b></a></p>
+            <p class="text-muted">Don't have an account? <a href="auth/signup" class="text-muted ml-1"><b>Sign Up</b></a></p>
           </div> <!-- end col -->
         </div>
         <!-- end row -->
