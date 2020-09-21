@@ -7,7 +7,7 @@ export class CustomValidator {
     const password: string = control.get('password').value;
     // get password from our confirmPassword form control
     const confirmPassword: string = control.get('confirmPassword').value;
-    // compare is the password match
+    // compare if the password match
     if (password !== confirmPassword) {
       // if they dont match, set an error in our confirmPassword form control
       control.get('confirmPassword').setErrors({ NoPasswordMatch: true });
