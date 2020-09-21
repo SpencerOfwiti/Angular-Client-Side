@@ -10786,7 +10786,7 @@ input[data-switch="dark"]:checked + label {
     line-height: 42px; }
 
 body.authentication-bg {
-  background-image: url("../images/bg-pattern-light.svg");
+  background-image: url("../images/bg-pattern-light.svg") !important;
   background-size: cover;
   background-position: center; }
 
