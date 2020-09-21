@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
+  currentUser: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }

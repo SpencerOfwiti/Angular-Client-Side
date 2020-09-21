@@ -197,8 +197,8 @@
                 <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
               </span>
         <span>
-                <span class="account-user-name">Dominic Keller</span>
-                <span class="account-position">Founder</span>
+                <span class="account-user-name">{{currentUser.firstName}} {{currentUser.lastName}}</span>
+                <span class="account-position">{{currentUser.role}}</span>
               </span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -208,7 +208,7 @@
         </div>
 
         <!-- item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item">
+        <a href="profile" class="dropdown-item notify-item">
           <i class="mdi mdi-account-circle mr-1"></i>
           <span>My Account</span>
         </a>
@@ -226,13 +226,13 @@
         </a>
 
         <!-- item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item">
+        <a href="auth/lock-screen" class="dropdown-item notify-item">
           <i class="mdi mdi-lock-outline mr-1"></i>
           <span>Lock Screen</span>
         </a>
 
         <!-- item-->
-        <a href="logout" class="dropdown-item notify-item">
+        <a href="auth/logout" class="dropdown-item notify-item">
           <i class="mdi mdi-logout mr-1"></i>
           <span>Logout</span>
         </a>

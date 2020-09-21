@@ -1,11 +1,4 @@
-<!-- Pre-loader -->
-<!--<div id="preloader">-->
-<!--  <div id="status">-->
-<!--    <div class="bouncing-loader"><div ></div><div ></div><div ></div></div>-->
-<!--  </div>-->
-<!--</div>-->
-<!-- End Preloader-->
-<div *ngIf="!isLoggedIn" class="loading authentication-bg" data-layout-config='{"darkMode":false}'>
+<div *ngIf="!isAdmin">
   <app-navbar></app-navbar>
   <main>
     <router-outlet></router-outlet>
@@ -13,15 +6,7 @@
   <app-footer></app-footer>
 </div>
 
-<div *ngIf="isLoggedIn && !isAdmin" class="loading" data-layout-config='{"darkMode": false}'>
-  <app-navbar></app-navbar>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-  <app-footer></app-footer>
-</div>
-
-<div *ngIf="isLoggedIn && isAdmin" class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+<div *ngIf="isAdmin" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false, "showRightSidebarOnStart": true}'>
   <!-- Begin page -->
   <div class="wrapper">
     <app-left-sidebar></app-left-sidebar>

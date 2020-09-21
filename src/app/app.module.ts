@@ -10,6 +10,7 @@ import {AuthGuard} from "./_guards";
 import {RoleGuard} from "./_guards";
 import {ErrorInterceptor} from "./_helpers";
 import {JwtInterceptor} from "./_helpers";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {JwtInterceptor} from "./_helpers";
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    AuthModule,
   ],
   providers: [
     AuthenticationService,
