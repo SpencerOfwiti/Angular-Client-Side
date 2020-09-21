@@ -1,0 +1,126 @@
+<div class="account-pages mt-5 mb-5 authentication-bg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="card">
+          <!-- Logo-->
+          <div class="card-header pt-4 pb-4 text-center bg-primary">
+            <a href="/">
+              <span><img src="assets/images/logo.png" alt="" height="18"></span>
+            </a>
+          </div>
+
+          <div class="card-body p-4">
+
+            <div class="text-center w-75 m-auto">
+              <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Free Sign Up</h4>
+              <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute </p>
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+              <div class="form-group">
+                <label for="emailaddress">Email address</label>
+                <input class="form-control" type="email" id="emailaddress" required placeholder="Enter your email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && form.email.errors }">
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                  <div *ngIf="form.email.errors.required">Email is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="givennames">Given Names</label>
+                <input class="form-control" type="text" id="givennames" placeholder="Enter your given names" formControlName="givenNames" [ngClass]="{ 'is-invalid': submitted && form.givenNames.errors }" required>
+                <div *ngIf="submitted && form.givenNames.errors" class="invalid-feedback">
+                  <div *ngIf="form.givenNames.errors.required">Given names are required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="surname">Surname</label>
+                <input class="form-control" type="text" id="surname" placeholder="Enter your surname" formControlName="surname" [ngClass]="{ 'is-invalid': submitted && form.surname.errors }" required>
+                <div *ngIf="submitted && form.surname.errors" class="invalid-feedback">
+                  <div *ngIf="form.surname.errors.required">Surname is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="publicidentifier">Public Identifier</label>
+                <input class="form-control" type="text" id="publicidentifier" placeholder="Enter your name" formControlName="publicIdentifier" [ngClass]="{ 'is-invalid': submitted && form.publicIdentifier.errors }" required>
+                <div *ngIf="submitted && form.publicIdentifier.errors" class="invalid-feedback">
+                  <div *ngIf="form.publicIdentifier.errors.required">Public identifier is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group input-group-merge">
+                  <input type="password" id="password" class="form-control" placeholder="Enter your password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" required>
+                  <div class="input-group-append" data-password="false" appPasswordToggle [id]="'password'">
+                    <div class="input-group-text">
+                      <span class="password-eye"></span>
+                    </div>
+                  </div>
+                  <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                    <div *ngIf="form.password.errors.required">Password is required</div>
+                    <div *ngIf="form.password.errors.hasCapitalCase">Should contain at least 1 uppercase alphabet</div>
+                    <div *ngIf="form.password.errors.hasSmallCase">Should contain at least 1 lowercase alphabet</div>
+                    <div *ngIf="form.password.errors.hasNumber">Should contain at least 1 number</div>
+                    <div *ngIf="form.password.errors.minlength">Should be at least 8 characters</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <div class="input-group input-group-merge">
+                  <input type="password" id="confirmpassword" class="form-control" placeholder="Confirm your password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && form.confirmPassword.errors }" required>
+                  <div class="input-group-append" data-password="false" appPasswordToggle [id]="'confirmpassword'">
+                    <div class="input-group-text">
+                      <span class="password-eye"></span>
+                    </div>
+                  </div>
+                  <div *ngIf="submitted && form.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="form.confirmPassword.errors.required">Password is required</div>
+                    <div *ngIf="form.confirmPassword.errors.NoPasswordMatch">Your passwords do not match</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="checkbox-signup" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && form.terms.errors }" required>
+                  <label class="custom-control-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
+                  <div *ngIf="submitted && form.terms.errors" class="invalid-feedback">
+                    <div *ngIf="form.terms.errors.required">You must agree to terms and conditions to proceed</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-0 text-center">
+                <button class="btn btn-primary" type="submit" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Sign Up
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
+              </div>
+
+            </form>
+          </div> <!-- end card-body -->
+        </div>
+        <!-- end card -->
+
+        <div class="row mt-3">
+          <div class="col-12 text-center">
+            <p class="text-muted">Already have account? <a href="auth/login" class="text-muted ml-1"><b>Log In</b></a></p>
+          </div> <!-- end col-->
+        </div>
+        <!-- end row -->
+
+      </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</div>
+<!-- end page -->
