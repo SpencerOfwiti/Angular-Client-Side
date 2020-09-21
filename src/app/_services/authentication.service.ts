@@ -64,7 +64,7 @@ export class AuthenticationService {
     ).pipe(map(user => {
       // login successful if there is a jwt token in the response
       if (user && user.authentication_token) {
-        // store user details and jwt token in localStorage to keep under logged in between page refreshes
+        // store user details and jwt token in localStorage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
       } else {
         console.log('Response:', user.message);
