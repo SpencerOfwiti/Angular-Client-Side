@@ -11,6 +11,8 @@ import {RoleGuard} from "./_guards";
 import {ErrorInterceptor} from "./_helpers";
 import {JwtInterceptor} from "./_helpers";
 import {AuthModule} from "./auth/auth.module";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {AuthModule} from "./auth/auth.module";
     SharedModule,
     HttpClientModule,
     AuthModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     AuthenticationService,
